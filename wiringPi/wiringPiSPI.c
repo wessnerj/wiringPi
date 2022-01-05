@@ -142,18 +142,6 @@ int wiringPiSPISetupMode (int channel, int speed, int mode)
 	case MODEL_ODROID_C2:
 		return wiringPiFailure (WPI_ALMOST,
 			"ODROID C2 does not support hardware SPI. Check out the SPI bitbang and use wiringPiSPISetupInterface.\n");
-	case MODEL_ODROID_HC4:
-		return wiringPiFailure (WPI_ALMOST,
-			"ODROID HC4 does not support hardware SPI.\n");
-	case MODEL_ODROID_XU3:
-		if (cmpKernelVersion(KERN_NUM_TO_MAJOR, 5))
-			sprintf(device, "%s%d", spiDevType0, channel);
-		else
-			sprintf(device, "%s%d", spiDevType1, channel);
-	break;
-	case MODEL_ODROID_N1:
-		sprintf(device, "%s%d", spiDevType1, channel);
-	break;
 	}
 
 	return wiringPiSPISetupInterface(device, channel, speed, mode);

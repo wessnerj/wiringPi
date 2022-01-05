@@ -248,23 +248,6 @@ int wiringPiI2CSetup (const int devId)
 		else
 			device = "/dev/i2c-1";
 	break;
-	case MODEL_ODROID_XU3:
-		if (cmpKernelVersion(KERN_NUM_TO_MAJOR, 5))
-			device = "/dev/i2c-0";
-		else
-			device = "/dev/i2c-1";
-	break;
-	case MODEL_ODROID_N1:
-		device = "/dev/i2c-4";
-	break;
-	case MODEL_ODROID_N2:
-	case MODEL_ODROID_C4:
-	case MODEL_ODROID_HC4:
-		if (cmpKernelVersion(KERN_NUM_TO_REVISION, 4, 9, 230))
-			device = "/dev/i2c-0";
-		else
-			device = "/dev/i2c-2";
-	break;
 	}
 
 	return wiringPiI2CSetupInterface (device, devId) ;

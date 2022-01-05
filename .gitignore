@@ -13,3 +13,5 @@ gpio/gpio
 
 libs/
 obj/
+/.idea/
+/cmake-build-*

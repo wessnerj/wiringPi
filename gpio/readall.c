@@ -110,15 +110,6 @@ static const int physToWpi [64] =
 } ;
 
 /*----------------------------------------------------------------------------*/
-static const int physToWpiHC4 [64] =
-{
-	-1,	// 0
-	-1,  0,	// 1, 2
-	 1,  2,
-	-1,
-} ;
-
-/*----------------------------------------------------------------------------*/
 static const char *physNamesOdroidC2All_Rev2 [64] =
 {
 	NULL,
@@ -243,292 +234,6 @@ static const char *physNamesOdroidC2_Rev1 [64] =
 };
 
 /*----------------------------------------------------------------------------*/
-static const char *physNamesOdroidXU3All [64] =
-{
-	NULL,
-
-	"    3.3V", "5V      ",
-	"I2C1.SDA", "5V      ",
-	"I2C1.SCL", "GND(0V) ",
-	"GPIO. 18", "UART0.TX",
-	" GND(0V)", "UART0.RX",
-	"GPIO.174", "GPIO.173",
-	"GPIO. 21", "GND(0V) ",
-	"GPIO. 22", "GPIO. 19",
-	"    3.3V", "GPIO. 23",
-	"    MOSI", "GND(0V) ",
-	"    MISO", "GPIO. 24",
-	"    SCLK", "CE0     ",
-	" GND(0V)", "GPIO. 25",
-	"I2C5.SDA", "I2C5.SCL",
-	"GPIO. 28", "GND(0V) ",
-	"GPIO. 30", "GPIO. 29",
-	"GPIO. 31", "GND(0V) ",
-	"POWER ON", "GPIO. 33",
-	"   AIN.0", "1V8     ",
-	" GND(0V)", "AIN.3   ",
-
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,
-};
-
-/*----------------------------------------------------------------------------*/
-static const char *physNamesOdroidXU3 [64] =
-{
-	NULL,
-
-	"   3.3V", "5V     ",
-	"I2C1.DA", "5V     ",
-	"I2C1.CL", "0V     ",
-	" IO. 18", "UART.TX",
-	"     0V", "UART.RX",
-	" IO.174", "IO.173 ",
-	" IO. 21", "0V     ",
-	" IO. 22", "IO. 19 ",
-	"   3.3V", "IO. 23 ",
-	"   MOSI", "0V     ",
-	"   MISO", "IO. 24 ",
-	"   SCLK", "CE0    ",
-	"     0V", "IO. 25 ",
-	"I2C5.DA", "I2C5.CL",
-	" IO. 28", "0V     ",
-	" IO. 30", "IO. 29 ",
-	" IO. 31", "0V     ",
-	" PWR ON", "IO. 33 ",
-	"  AIN.0", "1V8    ",
-	"     0V", "AIN.3  ",
-
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,
-};
-
-/*----------------------------------------------------------------------------*/
-static const char *physNamesOdroidN1All [64] =
-{
-	NULL,
-
-	"    3.0V", "5V      ",
-	"I2C4_SDA", "5V      ",
-	"I2C4_SCL", "GND(0V) ",
-	"GPIO1A.0", "UART0_TX",
-	" GND(0V)", "UART0_RX",
-	"GPIO1A.1", "GPIO1A.2",
-	"GPIO1A.3", "GND(0V) ",
-	"GPIO1A.4", "GPIO1B.5",
-	"    3.0V", "GPIO1C.2",
-	"SPI1_TXD", "GND(0V) ",
-	"SPI1_RXD", "GPIO1D.0",
-	"SPI1_CLK", "SPI1_CSN",
-	" GND(0V)", "GPIO1C.6",
-	"I2C8_SDA", "I2C8_SCL",
-	"SPDIF_TX", "GND(0V) ",
-	"    PWM1", "GPIO4D.4",
-	"GPIO4D.0", "GND(0V) ",
-	"GPIO4D.5", "GPIO4D.6",
-	"ADC.AIN1", "1V8     ",
-	" GND(0V)", "ADC.AIN0",
-
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,
-};
-
-/*----------------------------------------------------------------------------*/
-static const char *physNamesOdroidN1 [64] =
-{
-	NULL,
-
-	"   3.0V", "5V     ",
-	"I2C4.DA", "5V     ",
-	"I2C4.CL", "0V     ",
-	" IO1A.0", "UART.TX",
-	"     0V", "UART.RX",
-	" IO1A.1", "IO1A.2 ",
-	" IO1A.3", "0V     ",
-	" IO1A.4", "IO1B.5 ",
-	"   3.0V", "IO1C.2 ",
-	"SPI.TXD", "0V     ",
-	"SPI.RXD", "IO1D.0 ",
-	"SPI.CLK", "SPI.CSN",
-	"     0V", "IO1C.6 ",
-	"I2C8.DA", "I2C8.CL",
-	"SPDIF.T", "0V     ",
-	"   PWM1", "IO4D.4 ",
-	" IO4D.0", "0V     ",
-	" IO4D.5", "IO4D.6 ",
-	"   AIN1", "1V8    ",
-	"     0V", "AIN0   ",
-
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,
-};
-
-/*----------------------------------------------------------------------------*/
-static const char *physNamesOdroidN2All [64] =
-{
-	NULL,
-
-	"    3.3V", "5V      ",
-	"   SDA.2", "5V      ",
-	"   SCL.2", "GND(0V) ",
-	"GPIO.473", "TxD1    ",
-	" GND(0V)", "RxD1    ",
-	"GPIO.479", "GPIO.492",
-	"GPIO.480", "GND(0V) ",
-	"GPIO.483", "GPIO.476",
-	"    3.3V", "GPIO.477",
-	"    MOSI", "GND(0V) ",
-	"    MISO", "GPIO.478",
-	"    SCLK", "CE0     ",
-	" GND(0V)", "GPIO.464",
-	"   SDA.3", "SCL.3   ",
-	"GPIO.490", "GND(0V) ",
-	"GPIO.491", "GPIO.472",
-	"GPIO.481", "GND(0V) ",
-	"GPIO.482", "GPIO.495",
-	"   AIN.3", "1V8     ",
-	" GND(0V)", "AIN.2   ",
-
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,
-};
-
-/*----------------------------------------------------------------------------*/
-static const char *physNamesOdroidN2 [64] =
-{
-	NULL,
-
-	"   3.3V", "5V     ",
-	"  SDA.2", "5V     ",
-	"  SCL.2", "0V     ",
-	" IO.473", "TxD1   ",
-	"     0V", "RxD1   ",
-	" IO.479", "IO.492 ",
-	" IO.480", "0V     ",
-	" IO.483", "IO.476 ",
-	"   3.3V", "IO.477 ",
-	"   MOSI", "0V     ",
-	"   MISO", "IO.478 ",
-	"   SCLK", "CE0    ",
-	"     0V", "IO.464 ",
-	"  SDA.3", "SCL.3  ",
-	" IO.490", "0V     ",
-	" IO.491", "IO.472 ",
-	" IO.481", "0V     ",
-	" IO.482", "IO.495 ",
-	"  AIN.3", "1V8    ",
-	"     0V", "AIN.2  ",
-
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,
-};
-
-/*----------------------------------------------------------------------------*/
-static const char *physNamesOdroidC4All [64] =
-{
-	NULL,
-
-	"    3.3V", "5V      ",
-	"   SDA.2", "5V      ",
-	"   SCL.2", "GND(0V) ",
-	"GPIO.481", "TxD1    ",
-	" GND(0V)", "RxD1    ",
-	"GPIO.479", "GPIO.492",
-	"GPIO.480", "GND(0V) ",
-	"GPIO.483", "GPIO.476",
-	"    3.3V", "GPIO.477",
-	"    MOSI", "GND(0V) ",
-	"    MISO", "GPIO.478",
-	"    SLCK", "SS      ",
-	" GND(0V)", "GPIO. 23",
-	"   SDA.3", "SCL.3   ",
-	"GPIO.490", "GND(0V) ",
-	"GPIO.491", "GPIO. 24",
-	"GPIO.482", "GND(0V) ",
-	"GPIO.495", "GPIO. 22",
-	"   AIN.2", "1V8     ",
-	" GND(0V)", "AIN.0   ",
-
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,
-};
-
-/*----------------------------------------------------------------------------*/
-static const char *physNamesOdroidC4 [64] =
-{
-	NULL,
-
-	"   3.3V", "5V     ",
-	"  SDA.2", "5V     ",
-	"  SCL.2", "0V     ",
-	" IO.481", "TxD1   ",
-	"     0V", "RxD1   ",
-	" IO.479", "IO.492 ",
-	" IO.480", "0V     ",
-	" IO.483", "IO.476 ",
-	"   3.3V", "IO.477 ",
-	"   MOSI", "0V     ",
-	"   MISO", "IO.478 ",
-	"   SLCK", "SS     ",
-	"     0V", "IO. 23 ",
-	"  SDA.3", "SCL.3  ",
-	" IO.490", "0V     ",
-	" IO.491", "IO. 24 ",
-	" IO.482", "0V     ",
-	" IO.495", "IO. 22 ",
-	"  AIN.2", "1V8    ",
-	"     0V", "AIN.0  ",
-
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,
-};
-
-/*----------------------------------------------------------------------------*/
-static const char *physNamesOdroidHC4All [64] =
-{
-	NULL,
-
-	"    3.3V",
-	"   SDA.2",
-	"   SCL.2",
-	"GPIO.481",
-	"      0V",
-
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-};
-
-/*----------------------------------------------------------------------------*/
-static const char *physNamesOdroidHC4 [64] =
-{
-	NULL,
-
-	"   3.3V",
-	"  SDA.2",
-	"  SCL.2",
-	" IO.481",
-	"     0V",
-
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-};
-
-/*----------------------------------------------------------------------------*/
 static void readallPhys(int model, int UNU rev, int physPin, const char *physNames[], int isAll) {
 	int pin ;
 
@@ -571,16 +276,8 @@ static void readallPhys(int model, int UNU rev, int physPin, const char *physNam
 		// GPIO pin drive strength, pu/pd
 		if (isAll == TRUE) {
 			switch (model) {
-			case MODEL_ODROID_N1:
-				printf (" |    |      ");
-				break;
 			case MODEL_ODROID_C2:
 				printf (" |    | %5s", pupd[getPUPD(pin)]);
-				break;
-			case MODEL_ODROID_XU3:
-			case MODEL_ODROID_N2:
-			case MODEL_ODROID_C4:
-				printf (" | %2d | %5s", getDrive(pin), pupd[getPUPD(pin)]);
 				break;
 			default:
 				break;
@@ -611,16 +308,8 @@ static void readallPhys(int model, int UNU rev, int physPin, const char *physNam
 		// GPIO pin drive strength, pu/pd
 		if (isAll == TRUE) {
 			switch (model) {
-			case MODEL_ODROID_N1:
-				printf (" |       |   ");
-				break;
 			case MODEL_ODROID_C2:
 				printf (" | %-5s |   ", pupd[getPUPD(pin)]);
-				break;
-			case MODEL_ODROID_XU3:
-			case MODEL_ODROID_N2:
-			case MODEL_ODROID_C4:
-				printf (" | %-5s | %-2d", pupd[getPUPD(pin)], getDrive(pin));
 				break;
 			default:
 				break;
@@ -685,94 +374,6 @@ static void printBody(int model, int rev, const char *physNames[], int isAll) {
 }
 
 /*----------------------------------------------------------------------------*/
-static void readallPhysHC4(int model, int UNU rev, int physPin, const char *physNames[], int isAll) {
-	int pin ;
-
-	// GPIO, wPi pin number
-	if (isAll == TRUE) {
-		if ((physPinToGpio (physPin) == -1) && (physToWpiHC4 [physPin] == -1))
-			printf(" |      |    ");
-		else if (physPinToGpio (physPin) != -1) {
-			printf(" |  %3d | %3d", physPinToGpio(physPin), physToWpiHC4[physPin]);
-		} else
-			printf(" |      | %3d", physToWpiHC4 [physPin]);
-	} else {
-		if ((physPinToGpio (physPin) == -1) && (physToWpiHC4 [physPin] == -1))
-			printf(" |     |    ");
-		else if (physPinToGpio (physPin) != -1) {
-			printf(" | %3d | %3d", physPinToGpio(physPin), physToWpiHC4[physPin]);
-		} else
-			printf(" |     | %3d", physToWpiHC4 [physPin]);
-	}
-
-	// GPIO pin name
-	printf (" | %s", physNames [physPin]) ;
-
-	// GPIO pin mode, value
-	if ((physToWpiHC4 [physPin] == -1) || (physPinToGpio (physPin) == -1)) {
-		printf(" |      |  ");
-		if (isAll == TRUE)
-			printf(" |    |      ");
-	} else {
-		if (wpMode == MODE_GPIO)
-			pin = physPinToGpio (physPin);
-		else if (wpMode == MODE_PHYS)
-			pin = physPin ;
-		else
-			pin = physToWpiHC4 [physPin];
-
-		printf (" | %4s", alts [getAlt (pin)]) ;
-		printf (" | %d", digitalRead (pin)) ;
-
-		// GPIO pin drive strength, pu/pd
-		if (isAll == TRUE) {
-			switch (model) {
-			case MODEL_ODROID_HC4:
-				printf (" | %2d | %5s", getDrive(pin), pupd[getPUPD(pin)]);
-				break;
-			default:
-				break;
-			}
-		}
-	}
-
-	// Physical pin number
-	printf(" |  %2d |\n", physPin);
-}
-
-/*----------------------------------------------------------------------------*/
-static void printHeaderHC4(const char *headerName, int isAll) {
-	const char *header = " +-----+-----+---------+------+---+-----+";
-	const char *headerAll = " +------+-----+----------+------+---+----+-------+-----+";
-
-	(isAll == FALSE) ? printf("%s\n", header) : printf("%s\n", headerAll);
-	(isAll == FALSE)
-		? printf(" |              %s              |\n", headerName)
-		: printf(" |             %s              |\n", headerName);
-	(isAll == FALSE) ? printf("%s\n", header) : printf("%s\n", headerAll);
-}
-
-/*----------------------------------------------------------------------------*/
-static void printBodyHC4(int model, int rev, const char *physNames[], int isAll) {
-	(isAll == FALSE)
-		? printf(
-			" | I/O | wPi |   Name  | Mode | V | Phy |\n"
-			" +-----+-----+---------+------+---+-----+\n")
-		: printf(
-			" | GPIO | wPi |   Name   | Mode | V | DS | PU/PD | Phy |\n"
-			" +------+-----+----------+------+---+----+-------+-----+\n");
-	for (int pin = 1; pin <= 5; pin ++)
-		readallPhysHC4(model, rev, pin, physNames, isAll);
-	(isAll == FALSE)
-		? printf(
-			" +-----+-----+---------+------+---+-----+\n"
-			" | I/O | wPi |   Name  | Mode | V | Phy |\n")
-		: printf(
-			" +------+-----+----------+------+---+----+-------+-----+\n"
-			" | GPIO | wPi |   Name   | Mode | V | DS | PU/PD | Phy |\n");
-}
-
-/*----------------------------------------------------------------------------*/
 /*
  * doReadall:
  *	Read all the GPIO pins
@@ -814,37 +415,12 @@ void doReadall(int argc, char *argv[]) {
 			else
 				physNames = (char *) ((isAll == FALSE) ? physNamesOdroidC2_Rev2 : physNamesOdroidC2All_Rev2);
 			break;
-		case MODEL_ODROID_XU3:
-			headerName = (isAll == FALSE) ? "- XU3, 4 -" : "--- Model ODROID-XU3/4 ---";
-			physNames = (char *) ((isAll == FALSE) ? physNamesOdroidXU3 : physNamesOdroidXU3All);
-			break;
-		case MODEL_ODROID_N1:
-			headerName = (isAll == FALSE) ? "--- N1 ---" : "---- Model  ODROID-N1 ----";
-			physNames = (char *) ((isAll == FALSE) ? physNamesOdroidN1 : physNamesOdroidN1All);
-			break;
-		case MODEL_ODROID_N2:
-			headerName = (isAll == FALSE) ? "--- N2 ---" : "---- Model  ODROID-N2 ----";
-			physNames = (char *) ((isAll == FALSE) ? physNamesOdroidN2 : physNamesOdroidN2All);
-			break;
-		case MODEL_ODROID_C4:
-			headerName = (isAll == FALSE) ? "--- C4 ---" : "---- Model  ODROID-C4 ----";
-			physNames = (char *) ((isAll == FALSE) ? physNamesOdroidC4 : physNamesOdroidC4All);
-			break;
-		case MODEL_ODROID_HC4:
-			headerName = (isAll == FALSE) ? "   HC4    " : "     Model ODROID-HC4     ";
-			physNames = (char *) ((isAll == FALSE) ? physNamesOdroidHC4 : physNamesOdroidHC4All);
-			break;
 		default:
 			printf("Oops - unknown model: %d\n", model);
 			return;
 	}
 
 	switch (model) {
-		case MODEL_ODROID_HC4:
-			printHeaderHC4((const char *) headerName, isAll);
-			printBodyHC4(model, rev, (const char **) physNames, isAll);
-			printHeaderHC4((const char *) headerName, isAll);
-			break;
 		default:
 			printHeader((const char *) headerName, isAll);
 			printBody(model, rev, (const char **) physNames, isAll);

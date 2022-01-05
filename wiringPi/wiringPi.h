@@ -53,12 +53,13 @@
 #define KERN_NUM_TO_REVISION	3
 
 #define	MODEL_UNKNOWN		0
+// #define	MODEL_ODROID_C1		1
 #define	MODEL_ODROID_C2		2
-#define	MODEL_ODROID_XU3	3
-#define	MODEL_ODROID_N1		4
-#define	MODEL_ODROID_N2		5
-#define	MODEL_ODROID_C4		6
-#define	MODEL_ODROID_HC4	7
+// #define	MODEL_ODROID_XU3	3
+// #define	MODEL_ODROID_N1		4
+// #define	MODEL_ODROID_N2		5
+// #define	MODEL_ODROID_C4		6
+// #define	MODEL_ODROID_HC4	7
 
 #define	MAKER_UNKNOWN		0
 #define	MAKER_AMLOGIC		1

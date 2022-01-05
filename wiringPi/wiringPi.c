@@ -39,10 +39,6 @@
 
 /*----------------------------------------------------------------------------*/
 #include "odroidc2.h"
-#include "odroidxu3.h"
-#include "odroidn1.h"
-#include "odroidn2.h"
-#include "odroidc4.h"
 
 /*----------------------------------------------------------------------------*/
 // Const string define
@@ -460,8 +456,8 @@ int piGpioLayout (void) {
 				char buf[2];
 
 				if ((fd = open("/sys/class/odroid/boardrev", O_RDONLY)) < 0) {
-					printf ("ERROR : file not found.(boardrev)\n");
-					libwiring.rev = 1;
+					printf ("ERROR : file not found.(boardrev). Assuming rev = 2.\n");
+					libwiring.rev = 2;
 				} else {
 					if (read(fd, buf, sizeof(buf)) < 0) {
 						fprintf(stderr, "Unable to read from the file descriptor: %s \n", strerror(errno));
@@ -470,31 +466,6 @@ int piGpioLayout (void) {
 					libwiring.rev = atoi(buf) + 1;
 				}
 			}
-			break;
-		case MODEL_ODROID_XU3:
-			libwiring.maker = MAKER_SAMSUNG;
-			libwiring.mem = 3;
-			libwiring.rev = 1;
-			break;
-		case MODEL_ODROID_N1:
-			libwiring.maker = MAKER_ROCKCHIP;
-			libwiring.mem = 4;
-			libwiring.rev = 1;
-			break;
-		case MODEL_ODROID_N2:
-			libwiring.maker = MAKER_AMLOGIC;
-			libwiring.mem = 4;
-			libwiring.rev = 1;
-			break;
-		case MODEL_ODROID_C4:
-			libwiring.maker = MAKER_AMLOGIC;
-			libwiring.mem = 4;
-			libwiring.rev = 1;
-			break;
-		case MODEL_ODROID_HC4:
-			libwiring.maker = MAKER_AMLOGIC;
-			libwiring.mem = 4;
-			libwiring.rev = 1;
 			break;
 		case MODEL_UNKNOWN:
 		default:
@@ -1188,21 +1159,6 @@ int wiringPiSetup (void)
 	case MODEL_ODROID_C2:
 		init_odroidc2(&libwiring);
 	break;
-	case MODEL_ODROID_XU3:
-		init_odroidxu3(&libwiring);
-	break;
-	case MODEL_ODROID_N1:
-		init_odroidn1(&libwiring);
-	break;
-	case MODEL_ODROID_N2:
-		init_odroidn2(&libwiring);
-	break;
-	case MODEL_ODROID_C4:
-		init_odroidc4(&libwiring);
-	break;
-	case MODEL_ODROID_HC4:
-		init_odroidhc4(&libwiring);
-	break;
 	default:
 		return wiringPiFailure (WPI_ALMOST,
 			"wiringPiSetup: Unknown model\n");
@@ -1280,10 +1236,6 @@ int wiringPiSetupSys (void)
 	for (pin = 0 ; pin < 256 ; ++pin)
 	{
 		switch (libwiring.model) {
-		case	MODEL_ODROID_N1:
-		case	MODEL_ODROID_N2:
-			sprintf (fName, "/sys/class/gpio/gpio%d/value", pin + libwiring.pinBase);
-			break;
 		default:
 			sprintf (fName, "/sys/class/gpio/gpio%d/value", pin);
 			break;
