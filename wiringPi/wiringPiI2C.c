@@ -242,7 +242,6 @@ int wiringPiI2CSetup (const int devId)
 	piBoardId (&model, &rev, &mem, &maker, &overVolted) ;
 
 	switch(model)	{
-	case MODEL_ODROID_C1:
 	case MODEL_ODROID_C2:
 		if (cmpKernelVersion(KERN_NUM_TO_MAJOR, 4))
 			device = "/dev/i2c-0";

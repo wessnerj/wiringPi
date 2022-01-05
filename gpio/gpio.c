@@ -202,7 +202,6 @@ static void doI2Cdetect (UNU int argc, char *argv [])
 	piBoardId(&model, &rev, &mem, &maker, &overVolted);
 
 	switch (model) {
-	case MODEL_ODROID_C1:
 	case MODEL_ODROID_C2:
 		if (cmpKernelVersion(KERN_NUM_TO_MAJOR, 4))
 			port = 0;
@@ -236,7 +235,6 @@ static void doI2Cdetect (UNU int argc, char *argv [])
 	}
 
 	switch (model) {
-	case MODEL_ODROID_C1:
 	case MODEL_ODROID_C2:
 		if (!moduleLoaded (AML_MODULE_I2C)) {
 			fprintf (stderr, "%s: The I2C kernel module(s) are not loaded.\n", argv [0]) ;

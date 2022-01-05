@@ -53,7 +53,6 @@
 #define KERN_NUM_TO_REVISION	3
 
 #define	MODEL_UNKNOWN		0
-#define	MODEL_ODROID_C1		1
 #define	MODEL_ODROID_C2		2
 #define	MODEL_ODROID_XU3	3
 #define	MODEL_ODROID_N1		4

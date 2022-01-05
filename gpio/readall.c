@@ -119,68 +119,6 @@ static const int physToWpiHC4 [64] =
 } ;
 
 /*----------------------------------------------------------------------------*/
-static const char *physNamesOdroidC1All [64] =
-{
-	NULL,
-
-	"    3.3V", "5V      ",
-	"   SDA.1", "5V      ",
-	"   SCL.1", "GND(0V) ",
-	"GPIO. 83", "TxD1    ",
-	" GND(0V)", "RxD1    ",
-	"GPIO. 88", "GPIO. 87",
-	"GPIO.116", "GND(0V) ",
-	"GPIO.115", "GPIO.104",
-	"    3.3V", "GPIO.102",
-	"    MOSI", "GND(0V) ",
-	"    MISO", "GPIO.103",
-	"    SCLK", "CE0     ",
-	" GND(0V)", "GPIO.118",
-	"   SDA.2", "SCL.2   ",
-	"GPIO.101", "GND(0V) ",
-	"GPIO.100", "GPIO. 99",
-	"GPIO.108", "GND(0V) ",
-	"GPIO.97 ", "GPIO. 98",
-	"   AIN.1", "1V8     ",
-	" GND(0V)", "AIN.0   ",
-
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,
-};
-
-/*----------------------------------------------------------------------------*/
-static const char *physNamesOdroidC1 [64] =
-{
-	NULL,
-
-	"   3.3V", "5V     ",
-	"  SDA.1", "5V     ",
-	"  SCL.1", "0V     ",
-	" IO. 83", "TxD1   ",
-	"     0V", "RxD1   ",
-	" IO. 88", "IO. 87 ",
-	" IO.116", "0V     ",
-	" IO.115", "IO.104 ",
-	"   3.3V", "IO.102 ",
-	"   MOSI", "0V     ",
-	"   MISO", "IO.103 ",
-	"   SCLK", "CE0    ",
-	"     0V", "IO.118 ",
-	"  SDA.2", "SCL.2  ",
-	" IO.101", "0V     ",
-	" IO.100", "IO. 99 ",
-	" IO.108", "0V     ",
-	" IO.97 ", "IO. 98 ",
-	"  AIN.1", "1V8    ",
-	"     0V", "AIN.0  ",
-
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-	NULL,NULL,NULL,
-};
-
-/*----------------------------------------------------------------------------*/
 static const char *physNamesOdroidC2All_Rev2 [64] =
 {
 	NULL,
@@ -636,7 +574,6 @@ static void readallPhys(int model, int UNU rev, int physPin, const char *physNam
 			case MODEL_ODROID_N1:
 				printf (" |    |      ");
 				break;
-			case MODEL_ODROID_C1:
 			case MODEL_ODROID_C2:
 				printf (" |    | %5s", pupd[getPUPD(pin)]);
 				break;
@@ -677,7 +614,6 @@ static void readallPhys(int model, int UNU rev, int physPin, const char *physNam
 			case MODEL_ODROID_N1:
 				printf (" |       |   ");
 				break;
-			case MODEL_ODROID_C1:
 			case MODEL_ODROID_C2:
 				printf (" | %-5s |   ", pupd[getPUPD(pin)]);
 				break;
@@ -871,10 +807,6 @@ void doReadall(int argc, char *argv[]) {
 	piBoardId (&model, &rev, &mem, &maker, &overVolted);
 
 	switch (model) {
-		case MODEL_ODROID_C1:
-			headerName = (isAll == FALSE) ? "--- C1 ---" : "---- Model  ODROID-C1 ----";
-			physNames = (char *) ((isAll == FALSE) ? physNamesOdroidC1 : physNamesOdroidC1All);
-			break;
 		case MODEL_ODROID_C2:
 			headerName = (isAll == FALSE) ? "--- C2 ---" : "---- Model  ODROID-C2 ----";
 			if (rev == 1)

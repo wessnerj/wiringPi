@@ -6,6 +6,8 @@ project(wiringPi LANGUAGES C)
 
 # Set compile flags
 SET(CMAKE_C_FLAGS "-Wall -Wno-long-long -Wextra -Winline -Wno-format-truncation -pipe -fPIC" CACHE STRING "compile flags" FORCE)
+SET(CMAKE_C_FLAGS_DEBUG "-O0 -g")
+SET(CMAKE_C_FLAGS_RELEASE "-O2")
 
 # Add lib
 add_subdirectory(wiringPi)

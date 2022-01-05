@@ -38,7 +38,6 @@
 #include "../version.h"
 
 /*----------------------------------------------------------------------------*/
-#include "odroidc1.h"
 #include "odroidc2.h"
 #include "odroidxu3.h"
 #include "odroidn1.h"
@@ -437,12 +436,7 @@ int piGpioLayout (void) {
 	buf = strchr(line, '-');
 	modelCodename = buf != NULL ? buf : strchr(line, ' ');
 	if (modelCodename == NULL) {
-		if (strcmp(line, "ODROIDC") == 0) {
-			// Compatibility for Odroid-C series that are not having proper model name
-			libwiring.model = MODEL_ODROID_C1;
-		} else {
 			wiringPiFailure(WPI_FATAL, "** Model string on this board is not well formatted **");
-		}
 	} else {
 		modelCodename++;
 
@@ -458,11 +452,6 @@ int piGpioLayout (void) {
 	}
 
 	switch (libwiring.model) {
-		case MODEL_ODROID_C1:
-			libwiring.maker = MAKER_AMLOGIC;
-			libwiring.mem = 2;
-			libwiring.rev = 1;
-			break;
 		case MODEL_ODROID_C2:
 			libwiring.maker = MAKER_AMLOGIC;
 			libwiring.mem = 3;
@@ -1196,9 +1185,6 @@ int wiringPiSetup (void)
 	}
 
 	switch (libwiring.model) {
-	case MODEL_ODROID_C1:
-		init_odroidc1(&libwiring);
-	break;
 	case MODEL_ODROID_C2:
 		init_odroidc2(&libwiring);
 	break;
