@@ -1,3 +1,10 @@
+Joseph
+======
+
+This version is intended to be used on a Ordroid C2 (rev 2) running armbian.
+The target build system is CMake.
+Support of all other devices and systems is not intended or tested.
+
 Note
 ====
 
