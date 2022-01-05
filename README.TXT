@@ -5,6 +5,13 @@ This version is intended to be used on a Ordroid C2 (rev 2) running armbian.
 The target build system is CMake.
 Support of all other devices and systems is not intended or tested.
 
+Installation:
+mkdir build
+cd build
+cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ..
+make -j4
+sudo make install
+
 Note
 ====
 
